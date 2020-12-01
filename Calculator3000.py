@@ -16,9 +16,17 @@ def B2(b):
     global value2
     global fild
     if com!=0:
-        value2+=str(b)
+        if b=="-":
+            if value2=="":
+                value2="-"
+        else:
+            value2+=str(b)
     else:
-        value+=str(b)
+        if b=="-":
+            if value=="":
+                value="-"
+        else:
+            value+=str(b)
     
     fild["text"]=str(value)+""+action+""+str(value2)
     print(value, value2)  
@@ -97,13 +105,14 @@ Q8=Button(window,text="8", command =lambda:B2(8))
 Q9=Button(window,text="9", command =lambda:B2(9))
 Q0=Button(window,text="0", command =lambda:B2(0))
 QComma=Button(window,text=",", command =lambda:B2("."))
+QMin=Button(window,text="-/+", command =lambda:B2("-"))
 QM=Button(window,text="⌫", command =B3)
 QPl=Button(window,text="+", command =lambda:B4(1))
 QMi=Button(window,text="-", command =lambda:B4(2))
 QUm=Button(window,text="x", command =lambda:B4(3))
 QDe=Button(window,text=":", command =lambda:B4(4))
 QPro=Button(window,text="%", command =B7)
-QAs=Button(window,text="As", command =B6)
+QAs=Button(window,text="Ac", command =B6)
 QRe=Button(window,text="=", command =B5)
 fild=Label(window,text="0")
 tex=Label(window,text="Калькулятор")
@@ -129,6 +138,7 @@ Q0.config(font=("Courier", 20))
 QComma.config(font=("Courier", 20))
 QAs.config(font=("Courier", 20))
 QPro.config(font=("Courier", 20))
+QMin.config(font=("Courier", 20))
 
 
 tex.place(x=0,y=0,width=400,height=50)
@@ -148,7 +158,8 @@ Q8.place(x=100,y=400,width=100,height=75)
 Q3.place(x=200,y=250,width=100,height=75)
 Q6.place(x=200,y=325,width=100,height=75)
 Q9.place(x=200,y=400,width=100,height=75)
-Q0.place(x=0,y=475,width=200,height=75)
+Q0.place(x=100,y=475,width=100,height=75)
+QMin.place(x=0,y=475,width=100,height=75)
 QComma.place(x=200,y=475,width=100,height=75)
 QAs.place(x=0,y=175,width=100,height=75)
 QPro.place(x=200,y=175,width=100,height=75)
